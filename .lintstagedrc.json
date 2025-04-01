@@ -1,0 +1,7 @@
+{
+  "**/*.{js,ts}": [
+    "biome format --write",
+    "biome lint --fix",
+    "pnpm run test:staged"
+  ]
+}
