@@ -3,11 +3,11 @@ import { DrizzleOrdersRepository } from '@/repositories/drizzle/orders'
 import { DrizzleOrdersProductsRepository } from '@/repositories/drizzle/orders-products'
 import { DrizzleProductsRepository } from '@/repositories/drizzle/products'
 import {
-  type CreateOrderInput,
+  type CreateOrderDTO,
   CreateOrdersUseCase,
 } from '@/usecases/orders/create'
 
-export const makeCreateOrdersUseCae = async (ordersDTO: CreateOrderInput) => {
+export const makeCreateOrdersUseCae = async (ordersDTO: CreateOrderDTO) => {
   const response = await db.transaction(async tx => {
     const useCase = new CreateOrdersUseCase(
       new DrizzleOrdersRepository(tx),

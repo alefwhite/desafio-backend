@@ -15,7 +15,7 @@ export const ordersRoutes: FastifyPluginAsyncZod = async app => {
         body: ordersSchema,
         response: {
           201: z.object({
-            id: z.string(),
+            id: z.number(),
             status: z.string(),
             paymentLink: z.string().url(),
           }),

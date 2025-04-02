@@ -103,7 +103,7 @@ export class CreateOrdersUseCase {
     return {
       id: order.id,
       status: order.status,
-      paymentLink: `${env.BASE_URL}/pay/${order.id}`,
+      paymentLink: `${env.BASE_URL}/api/pay/${order.id}`,
     }
   }
 }

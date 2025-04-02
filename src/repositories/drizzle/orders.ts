@@ -13,7 +13,6 @@ export class DrizzleOrdersRepository implements ICreateOrder {
         customerId: data.customerId,
         total: data.total,
         paymentMethod: data.paymentMethod,
-        status: data.paymentMethod === 'CREDIT_CARD' ? 'PAID' : 'PENDING',
       })
       .returning({ id: orders.id, status: orders.status })
 
