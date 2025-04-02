@@ -1,6 +1,7 @@
+import { env } from '@/config/env'
 import { app } from './app'
 
-const PORT = 3000
+const PORT = env.PORT
 app
   .listen({
     port: PORT,
