@@ -8,3 +8,21 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://localhost:3000/api/authenticate
+Content-Type: application/json
+
+{
+  "email": "alefwhite@email.com",
+  "password": "123456"
+}
+
+###
+
+PATCH http://localhost:3000/api/refresh
+Content-Type: application/json
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJuYW1lIjoiQWxlZiBXaGl0ZSIsImVtYWlsIjoiYWxlZndoaXRlQGVtYWlsLmNvbSIsInN1YiI6ImJiY2I4NGVkLWQ1ZjEtNDQwMi04MWQ0LTNiODBmNzUwNWQ2ZSIsImlhdCI6MTc0MzYwNTg2MiwiZXhwIjoxNzQ0MjEwNjYyfQ.xRqPGVZNL9X-AFgy5b7t-lCQB5bOFXQXkMeAJx4x95Y
+
+{
+
+}

@@ -1,14 +1,3 @@
-import type { Optional } from '@/utils/optional-type'
-
-type User = {
-  id?: string
-  name: string
-  email: string
-  role: 'ADMIN' | 'CUSTOMER'
-  createdAt?: Date
-  updatedAt?: Date
-}
-
 export interface ICreateUser {
   create: (input: ICreateUser.Input) => Promise<ICreateUser.Output>
 }
@@ -32,8 +21,13 @@ export namespace IGetUserByEmail {
     email: string
   }
 
-  export type Output = Optional<
-    User & { password: string },
-    'createdAt' | 'updatedAt'
-  > | null
+  export type Output = {
+    id: string
+    name: string
+    email: string
+    password: string
+    role: 'ADMIN' | 'CUSTOMER'
+    createdAt: Date
+    updatedAt: Date
+  }
 }
