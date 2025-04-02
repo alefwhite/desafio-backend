@@ -29,5 +29,5 @@ export namespace IGetUserByEmail {
     role: 'ADMIN' | 'CUSTOMER'
     createdAt: Date
     updatedAt: Date
-  }
+  } | null
 }

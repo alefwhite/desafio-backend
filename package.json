@@ -16,8 +16,9 @@
     "test:staged": "vitest related --run src/usecases",
     "prepare": "husky",
     "audit": "pnpm audit",
-    "drizzle-generate": "drizzle-kit generate",
-    "drizzle-migrate": "drizzle-kit migrate"
+    "db-generate": "drizzle-kit generate",
+    "db-migrate": "drizzle-kit migrate",
+    "seed": "tsx src/database/seeds.ts"
   },
   "engines": {
     "node": ">=22.0.0"
