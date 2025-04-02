@@ -1,10 +1,12 @@
 {
   "name": "desafio-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API REST para processar pedidos e gerenciar pagamentos",
+  "main": "dist/index.js",
   "scripts": {
     "preinstall": "node check-version.js",
+    "build": "rimraf dist && tsup src --format cjs,esm --dts --minify",
+    "start": "node dist/server.cjs",
     "dev": "tsx watch src/server.ts",
     "test": "vitest run --dir src/usecases",
     "test:watch": "vitest",
@@ -13,7 +15,9 @@
     "test:ui": "vitest --ui",
     "test:staged": "vitest related --run src/usecases",
     "prepare": "husky",
-    "audit": "pnpm audit"
+    "audit": "pnpm audit",
+    "drizzle-generate": "drizzle-kit generate",
+    "drizzle-migrate": "drizzle-kit migrate"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -27,9 +31,11 @@
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
     "@types/node": "^22.13.16",
+    "@types/pg": "^8.11.11",
     "@types/semver": "^7.7.0",
     "@vitest/coverage-v8": "^3.1.1",
     "@vitest/ui": "^3.1.1",
+    "drizzle-kit": "^0.30.6",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "pino": "^9.6.0",
@@ -50,8 +56,13 @@
     "@fastify/swagger-ui": "^5.2.2",
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.41.0",
     "fastify": "^5.2.2",
+    "fastify-type-provider-zod": "^4.0.2",
+    "pg": "^8.14.1",
+    "rimraf": "^6.0.1",
     "semver": "^7.7.1",
+    "tsconfig-paths": "^4.2.0",
     "zod": "^3.24.2"
   }
 }
