@@ -16,7 +16,7 @@ export const db = drizzle(pool, { schema })
 async function seed() {
   console.log('🔄 Populando o banco de dados...')
 
-  const { users } = schema
+  const { users, products } = schema
 
   const adminEmail = 'admin@admin.com'
   const [adminExists] = await db
@@ -38,6 +38,16 @@ async function seed() {
   } else {
     console.log('⚠️ Usuário ADMIN já existe!')
   }
+
+  await db.delete(products)
+  await db.insert(products).values([
+    { id: 1001, name: 'Smartphone X', price: '1999.99', stock: 50 },
+    { id: 1002, name: 'Notebook Pro', price: '4999.99', stock: 30 },
+    { id: 1003, name: 'Fone de Ouvido Wireless', price: '299.99', stock: 100 },
+    { id: 1004, name: 'Mouse Gamer', price: '199.99', stock: 75 },
+    { id: 1005, name: 'Teclado Mecânico', price: '349.99', stock: 60 },
+  ])
+  console.log('✅ Produtos criado!')
 }
 
 seed().catch(err => {

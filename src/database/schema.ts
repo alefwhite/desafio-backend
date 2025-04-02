@@ -1,7 +1,15 @@
 import { sql } from 'drizzle-orm'
-import { integer } from 'drizzle-orm/pg-core'
-import { numeric } from 'drizzle-orm/pg-core'
-import { pgEnum, pgTable, timestamp, uuid, varchar } from 'drizzle-orm/pg-core'
+
+import {
+  integer,
+  numeric,
+  pgEnum,
+  pgTable,
+  serial,
+  timestamp,
+  uuid,
+  varchar,
+} from 'drizzle-orm/pg-core'
 
 export const userRoleEnum = pgEnum('user_role', ['ADMIN', 'CUSTOMER'])
 
@@ -28,7 +36,7 @@ export const orderStatusEnum = pgEnum('order_status', [
 ])
 
 export const orders = pgTable('orders', {
-  id: uuid('id').default(sql`gen_random_uuid()`).primaryKey(),
+  id: serial('id').primaryKey(),
   customerId: uuid('customer_id')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
@@ -40,7 +48,7 @@ export const orders = pgTable('orders', {
 })
 
 export const products = pgTable('products', {
-  id: uuid('id').default(sql`gen_random_uuid()`).primaryKey(),
+  id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
   price: numeric('price', { precision: 10, scale: 2 }).notNull(),
   stock: integer('stock').notNull().default(0),
@@ -49,11 +57,11 @@ export const products = pgTable('products', {
 })
 
 export const ordersProducts = pgTable('orders_products', {
-  id: uuid('id').default(sql`gen_random_uuid()`).primaryKey(),
-  orderId: uuid('order_id')
+  id: uuid('id').primaryKey().defaultRandom(),
+  orderId: integer('order_id')
     .notNull()
     .references(() => orders.id, { onDelete: 'cascade' }),
-  productId: uuid('product_id')
+  productId: integer('product_id')
     .notNull()
     .references(() => products.id, { onDelete: 'cascade' }),
   quantity: integer('quantity').notNull().default(1),
