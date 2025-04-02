@@ -1,3 +1,4 @@
+import { usersRoutes } from '@/http/routes/users'
 import type { FastifyInstance, FastifyPluginAsync } from 'fastify'
 import { z } from 'zod'
 
@@ -19,9 +20,9 @@ export const setupRoutes: FastifyPluginAsync = async (app: FastifyInstance) => {
     }
   )
 
-  //app.register(webHooksRoutes)
-
   const globalPrefix: string = '/api'
+
+  app.register(usersRoutes, { prefix: globalPrefix })
 
   // app.patch(
   //   '/',
