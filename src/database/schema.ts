@@ -40,7 +40,11 @@ export const orders = pgTable('orders', {
   customerId: uuid('customer_id')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-  total: numeric('total', { precision: 10, scale: 2 }).notNull(),
+  total: numeric('total', {
+    precision: 10,
+    scale: 2,
+    mode: 'number',
+  }).notNull(),
   paymentMethod: paymentMethodEnum('payment_method').notNull(),
   status: orderStatusEnum('status').notNull().default('PENDING'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
@@ -50,7 +54,11 @@ export const orders = pgTable('orders', {
 export const products = pgTable('products', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
-  price: numeric('price', { precision: 10, scale: 2 }).notNull(),
+  price: numeric('price', {
+    precision: 10,
+    scale: 2,
+    mode: 'number',
+  }).notNull(),
   stock: integer('stock').notNull().default(0),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
@@ -68,5 +76,6 @@ export const ordersProducts = pgTable('orders_products', {
   priceAtPurchase: numeric('price_at_purchase', {
     precision: 10,
     scale: 2,
+    mode: 'number',
   }).notNull(),
 })

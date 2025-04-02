@@ -1,3 +1,4 @@
+import { ordersRoutes } from '@/http/routes/orders'
 import { usersRoutes } from '@/http/routes/users'
 import type { FastifyInstance, FastifyPluginAsync } from 'fastify'
 import { z } from 'zod'
@@ -23,6 +24,7 @@ export const setupRoutes: FastifyPluginAsync = async (app: FastifyInstance) => {
   const globalPrefix: string = '/api'
 
   app.register(usersRoutes, { prefix: globalPrefix })
+  app.register(ordersRoutes, { prefix: globalPrefix })
 
   // app.patch(
   //   '/',

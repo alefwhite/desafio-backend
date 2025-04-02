@@ -5,8 +5,9 @@ export interface ICreateOrder {
 export namespace ICreateOrder {
   export type Input = {
     customerId: string
+    total: number
     paymentMethod: 'CREDIT_CARD' | 'BOLETO' | 'PIX'
   }
 
-  export type Output = { id: string }
+  export type Output = { id: number; status: string }
 }

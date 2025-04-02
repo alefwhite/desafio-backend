@@ -1,3 +1,4 @@
+### Criar usuário
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -7,8 +8,7 @@ Content-Type: application/json
   "password": "123456"
 }
 
-###
-
+### Realiza o login
 POST http://localhost:3000/api/authenticate
 Content-Type: application/json
 
@@ -17,12 +17,34 @@ Content-Type: application/json
   "password": "123456"
 }
 
-###
-
+### Renova o token de acesso
 PATCH http://localhost:3000/api/refresh
 Content-Type: application/json
 Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJuYW1lIjoiQWxlZiBXaGl0ZSIsImVtYWlsIjoiYWxlZndoaXRlQGVtYWlsLmNvbSIsInN1YiI6ImJiY2I4NGVkLWQ1ZjEtNDQwMi04MWQ0LTNiODBmNzUwNWQ2ZSIsImlhdCI6MTc0MzYwNTg2MiwiZXhwIjoxNzQ0MjEwNjYyfQ.xRqPGVZNL9X-AFgy5b7t-lCQB5bOFXQXkMeAJx4x95Y
 
 {
 
+}
+
+### Criar Pedido
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJuYW1lIjoiQWxlZiBXaGl0ZSIsImVtYWlsIjoiYWxlZndoaXRlQGVtYWlsLmNvbSIsInN1YiI6ImExZmE5NjQ4LTA4NmMtNGMwNy1hNmNiLTk5OWIwMzQwYTk2NyIsImlhdCI6MTc0MzYyMjI1NiwiZXhwIjoxNzQ0MjI3MDU2fQ.67mimIdUFqE4fKV7BpqWum3xkzKBVLij9OSKHmQpYU4
+
+{
+  "items": [
+    {
+      "productId": 1001,
+      "quantity": 2
+    },
+    {
+      "productId": 1002,
+      "quantity": 1
+    },
+    {
+      "productId": 1003,
+      "quantity": 3
+    }
+  ],
+  "paymentMethod": "PIX"
 }
