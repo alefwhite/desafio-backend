@@ -5,7 +5,6 @@ import { Bcrypt } from '@/libs/bcrypt'
 import { eq } from 'drizzle-orm'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import { Pool } from 'pg'
-import { users } from './schema'
 
 const pool = new Pool({
   connectionString: env.DATABASE_URL,
@@ -41,11 +40,11 @@ async function seed() {
 
   await db.delete(products)
   await db.insert(products).values([
-    { id: 1001, name: 'Smartphone X', price: '1999.99', stock: 50 },
-    { id: 1002, name: 'Notebook Pro', price: '4999.99', stock: 30 },
-    { id: 1003, name: 'Fone de Ouvido Wireless', price: '299.99', stock: 100 },
-    { id: 1004, name: 'Mouse Gamer', price: '199.99', stock: 75 },
-    { id: 1005, name: 'Teclado Mecânico', price: '349.99', stock: 60 },
+    { id: 1001, name: 'Smartphone X', price: 1999.99, stock: 50 },
+    { id: 1002, name: 'Notebook Pro', price: 4999.99, stock: 30 },
+    { id: 1003, name: 'Fone de Ouvido Wireless', price: 299.99, stock: 100 },
+    { id: 1004, name: 'Mouse Gamer', price: 199.99, stock: 75 },
+    { id: 1005, name: 'Teclado Mecânico', price: 349.99, stock: 60 },
   ])
   console.log('✅ Produtos criado!')
 }
