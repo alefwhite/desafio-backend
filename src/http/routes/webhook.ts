@@ -8,7 +8,7 @@ export const webhookRoutes: FastifyPluginAsyncZod = async app => {
     '/webhook/payment',
     {
       schema: {
-        summary: 'Webhook de Pagamento Bem Sucedido',
+        summary: 'Webhook (Receber Atualização de Pagamento)',
         tags: ['Webhooks'],
         body: z.object({
           orderId: z.string(),
