@@ -7,7 +7,7 @@ import {
   CreateOrdersUseCase,
 } from '@/usecases/orders/create'
 
-export const makeCreateOrdersUseCae = async (ordersDTO: CreateOrderDTO) => {
+export const makeCreateOrdersUseCase = async (ordersDTO: CreateOrderDTO) => {
   const response = await db.transaction(async tx => {
     const useCase = new CreateOrdersUseCase(
       new DrizzleOrdersRepository(tx),

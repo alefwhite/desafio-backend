@@ -1,4 +1,4 @@
-import { makeCreateOrdersUseCae } from '@/usecases/factories/make-create-orders'
+import { makeCreateOrdersUseCase } from '@/usecases/factories/make-create-orders'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
@@ -20,7 +20,7 @@ export async function create(
 ) {
   const { paymentMethod, items } = request.body
 
-  const createOrdersUseCase = await makeCreateOrdersUseCae({
+  const createOrdersUseCase = await makeCreateOrdersUseCase({
     customerId: request.user.sub,
     items,
     paymentMethod,

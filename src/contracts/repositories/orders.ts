@@ -11,3 +11,24 @@ export namespace ICreateOrder {
 
   export type Output = { id: number; status: string }
 }
+
+export interface IGetOrderByIdAndCustomerId {
+  findByIdAndCustomerId: (
+    input: IGetOrderByIdAndCustomerId.Input
+  ) => Promise<IGetOrderByIdAndCustomerId.Output>
+}
+
+export namespace IGetOrderByIdAndCustomerId {
+  export type Input = {
+    orderId: number
+    customerId: string
+  }
+
+  export type Output = {
+    id: number
+    customerId: string
+    total: number
+    status: string
+    createdAt: Date
+  }[]
+}
