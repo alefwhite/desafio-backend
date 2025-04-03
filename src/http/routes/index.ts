@@ -56,7 +56,9 @@ export const setupRoutes: FastifyPluginAsync = async (app: FastifyInstance) => {
       const { orderId } = request.params as { orderId: string }
 
       if (!orderId) {
-        return reply.status(400).send({ error: 'orderId é obrigatório' })
+        return reply
+          .status(400)
+          .send({ error: 'Bad Request', message: 'orderId is required' })
       }
 
       const [order] = await db
@@ -70,9 +72,13 @@ export const setupRoutes: FastifyPluginAsync = async (app: FastifyInstance) => {
 
       switch (order.status) {
         case 'PAID':
-          return reply.status(400).send({ error: 'Pedido já pago!' })
+          return reply
+            .status(400)
+            .send({ error: 'Bad Request', message: 'Pedido já pago!' })
         case 'CANCELED':
-          return reply.status(400).send({ error: 'Pedido já cancelado!' })
+          return reply
+            .status(400)
+            .send({ error: 'Bad Request', message: 'Pedido já cancelado!' })
       }
 
       if (order.paymentMethod === 'CREDIT_CARD') {
