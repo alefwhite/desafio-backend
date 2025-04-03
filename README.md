@@ -77,7 +77,7 @@ A documentação completa da API está disponível através do Swagger UI em: ht
 
 ## Endpoints da API
 
-Todos os endpoints da API (exceto autenticação e cadastro de usuário) requerem um token JWT válido no header `Authorization: Bearer <token>`.
+Todos os endpoints da API (exceto cadastro de usuário, autenticação e realizar pagamento) requerem um token JWT válido no header `Authorization: Bearer <token>`.
 
 ### Autenticação
 
