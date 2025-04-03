@@ -3,7 +3,7 @@
   "_version": "22.0.0",
 
   "compilerOptions": {
-    "lib": ["es2023"],
+    "lib": ["Es2022"],
     "module": "node16",
     "target": "es2022",
     "rootDir": "./src",
@@ -16,7 +16,8 @@
     "skipLibCheck": true,
     "moduleResolution": "node16",
     "outDir": "dist",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "coverage"]
