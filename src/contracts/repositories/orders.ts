@@ -29,6 +29,7 @@ export namespace IGetOrderByIdAndCustomerId {
     customerId: string
     total: number
     status: string
+    paymentMethod: 'CREDIT_CARD' | 'BOLETO' | 'PIX'
     createdAt: Date
   }[]
 }

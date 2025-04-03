@@ -37,6 +37,7 @@ export class DrizzleOrdersRepository
         customerId: orders.customerId,
         total: orders.total,
         status: orders.status,
+        paymentMethod: orders.paymentMethod,
         createdAt: orders.createdAt,
       })
       .from(orders)

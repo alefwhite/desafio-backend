@@ -50,7 +50,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ1VTVE9NR
 }
 
 ### Detalhes de um Pedido
-GET http://localhost:3000/api/orders/11
+GET http://localhost:3000/api/orders/12
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ1VTVE9NRVIiLCJuYW1lIjoiQWxlZiBXaGl0ZSIsImVtYWlsIjoiYWxlZndoaXRlQGVtYWlsLmNvbSIsInN1YiI6ImExZmE5NjQ4LTA4NmMtNGMwNy1hNmNiLTk5OWIwMzQwYTk2NyIsImlhdCI6MTc0MzYyMjI1NiwiZXhwIjoxNzQ0MjI3MDU2fQ.67mimIdUFqE4fKV7BpqWum3xkzKBVLij9OSKHmQpYU4
 
